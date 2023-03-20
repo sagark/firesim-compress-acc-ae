@@ -711,7 +711,7 @@ if __name__ == '__main__':
         else:
             prefix = prefix + "-"
         if sys.argv[1] == "benchlaunch":
-            benchinst = launch_run_instances('m4.large', 1, prefix + 'benchtestx86', 'ondemand', 'terminate', 'ondemand', timedelta(), True)
+            benchinst = launch_run_instances('m4.large', 1, prefix + 'benchtestx86', 'ondemand', 'terminate', 'ondemand', timedelta(minutes=720), True)
             print(benchinst)
             wait_on_instance_launches(benchinst)
             print(get_private_ips_for_instances(benchinst))
