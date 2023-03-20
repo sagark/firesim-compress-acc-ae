@@ -704,4 +704,22 @@ def main(args: List[str]) -> int:
 
 if __name__ == '__main__':
     import sys
-    sys.exit(main(sys.argv[1:]))
+    if len(sys.argv) == 2:
+        prefix = aws_resource_names()['runfarmprefix']
+        if prefix is None:
+            prefix = ""
+        else:
+            prefix = prefix + "-"
+        if sys.argv[1] == "benchlaunch":
+            benchinst = launch_run_instances('m4.large', 1, prefix + 'benchtestx86', 'ondemand', 'terminate', 'ondemand', timedelta(), True)
+            print(benchinst)
+            wait_on_instance_launches(benchinst)
+            print(get_private_ips_for_instances(benchinst))
+
+        if sys.argv[1] == "benchterminate":
+            benchinst = get_instances_by_tag_type({'fsimcluster': prefix + 'benchtestx86'}, 'm4.large')
+            print(benchinst)
+            instids = get_instance_ids_for_instances(benchinst)
+            print(instids)
+            terminate_instances(instids, False)
+

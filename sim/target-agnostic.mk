@@ -117,7 +117,7 @@ conf: $(fame_annos)
 ####################################
 
 VERILATOR_CXXOPTS ?= -O0
-VERILATOR_MAKEFLAGS ?= -j8 VM_PARALLEL_BUILDS=1
+VERILATOR_MAKEFLAGS ?= -j32 VM_PARALLEL_BUILDS=1
 
 verilator = $(GENERATED_DIR)/V$(DESIGN)
 verilator_debug = $(GENERATED_DIR)/V$(DESIGN)-debug

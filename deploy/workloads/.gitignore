@@ -24,3 +24,9 @@ sha3-linux-test.json
 sha3-linux-test/
 sha3-linux.json
 sha3-linux/
+snappy-decompress-external-baremetal
+snappy-decompress-external-baremetal.json
+snappy-complete-external-baremetal
+snappy-complete-external-baremetal.json
+snappy-compress-external-baremetal
+snappy-compress-external-baremetal.json
